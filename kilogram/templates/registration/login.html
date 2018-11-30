@@ -13,12 +13,12 @@
 <form method="POST" action="">
     {% csrf_token %}
     <input type="hidden" name="next" value="" />
-    {{ from.as_p }}
+    {{ form.as_p }}
     <button type="submit">로그인</button>
 </form>
 
 <br>
-<p>아이디가 없으신가요? <a herf="signup">회원가입</a></p>
+<p>아이디가 없으신가요? <a herf="{% url 'signup' %}">회원가입</a></p>
 
 {% endif %}
 {% endblock %}

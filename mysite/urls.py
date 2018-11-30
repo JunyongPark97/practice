@@ -23,8 +23,9 @@ urlpatterns = [
     path('',kilogram_views.IndexView.as_view(), name="root"),
     path('kilogram/',include('kilogram.urls')),
     path('accounts/',include('django.contrib.auth.urls')),
-    # path('accounts/logout/',auth_views.logout,{'next_page':'/'}),
-    path('login',auth_views.login,{'templates_name':'login.html'}),
+    path('logout/',auth_views.LogoutView.as_view(), {'next_page':'/'}, name='logout'),
+    path('login',auth_views.LoginView.as_view(),{'templates_name':'kilogram/login.html'}),
     path('accounts/signup',kilogram_views.CreateUserView.as_view(), name='signup'),
-    # path('accounts/login/done',kilogram_views.RegisterView.as_view(), name='create_user_done'),
+    path('accounts/login/done',kilogram_views.RegisterView.as_view(), name='create_user_done'),
+    path('accounts/list/', kilogram_views.simple_list, name='index1'),
 ]

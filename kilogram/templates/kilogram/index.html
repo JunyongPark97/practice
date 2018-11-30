@@ -1,6 +1,12 @@
 {% extends 'kilogram/base.html' %}
 {% block content %}
 
-<h1>Kilogram Main Page</h1>
-
+<h1>sssoso Main Page</h1>
+    {% if user.is_authenticated %}
+    Hi, {{ user.username }}
+    <p><a herf="{% url 'logout' %}">logout<</a></p>
+    {% else %}
+    <p>You are not logged in</p>
+    <a herf="{%  url 'login' %}">login</a>
+    {% endif %}
 {% endblock %}
